@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
+import logoPath from '../../images/logo.svg';
 
 export default function Logo(props) {
-  
-
   return (
-    <h5 > logo </h5>
+    <Link to="/"> 
+       <img className="logo" src={logoPath} alt="логотип надпись C" />
+    </Link> 
   )
 }
+
+

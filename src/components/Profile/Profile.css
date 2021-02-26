@@ -1,0 +1,12 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.profile__bnts-container {
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

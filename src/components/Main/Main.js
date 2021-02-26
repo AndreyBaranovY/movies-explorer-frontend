@@ -1,5 +1,5 @@
 import Promo from '../Promo/Promo';
-// import NavTab from '../NavTab/NavTab';
+import NavTab from '../NavTab/NavTab';
 import AboutProject from '../AboutProject/AboutProject';
 import Techs from '../Techs/Techs';
 import AboutMe from '../AboutMe/AboutMe';
@@ -10,14 +10,13 @@ import './Main.css';
 export default function Main(props) {
   
     return (
-      <section className='main'>
+      <div className='main'>        
         <Promo /> 
-        {/* <NavTab/>   */}
+        <NavTab />
         <AboutProject />
         <Techs />
         <AboutMe />
-        <Portfolio />
-        Main's Hello!
-      </section>
+        <Portfolio />    
+      </div>
     )
   }

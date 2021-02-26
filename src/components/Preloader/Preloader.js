@@ -1,10 +1,11 @@
 import React from 'react'
 import './Preloader.css'
 
-const Preloader = () => {
+const Preloader = ({isLoadind}) => {
+
     return (
-        <div className="preloader">
-            <div className="preloader__container">
+        <div className= "preloader">
+            <div className={isLoadind ? "preloader__container" : "preloader__container_invisible"}>
                 <span className="preloader__round"></span>
             </div>
         </div>

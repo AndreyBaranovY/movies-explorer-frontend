@@ -6,7 +6,7 @@ export default function SavedMoviesHeader(props) {
   
     return (
       <div >
-             SavedMoviesHeader in SavedMovies!
+             SavedMoviesHeader will be hear ...
       </div >
     )
   }

@@ -1,22 +1,123 @@
 .header {
-    outline: 1px solid red;
-    display: flex;  
-    flex-direction: column; 
+    background-color: white;
 }
 
-.header__links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.header__content {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 18px 70px;
 }
 
-.header__link {
-    font-size: 18px;
-    text-decoration: none;
-    padding: 0 15px;
-    color: black;
+  .header__btn {
+    box-sizing: content-box;
+    padding: 8px 20px;
+    margin: 0;
+    border: none;  
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    background-color:var(--bg-dark);
+    color: white;
   }
+
+  .header__btn:hover {
+    opacity: 0.6;  
+    cursor: pointer;
+    transition: opacity 0.7s ease;
+  }
+
+  .header__btn_active {
+     background-color: var(--bt-green);
+     transition: opacity 0.7s ease;
+     color: black;
+     margin-left: 10px;
+   }
+ 
+   .header__btn_active:hover {
+     cursor: pointer;
+     opacity: 0.6;
+   }
+
+   @media screen and (max-width: 800px) {
+    .header__content {
+      padding: 18px 30px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .header__content{
+      padding: 18px 14px;
+    }
+    .header__btn {
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px){
+    .header__profile {
+      display: none;
+    }
+  }
+
+
+  .hero {
+    background-color: var(--bg-dark);
+}
+
+.hero__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 70px;
+}
+
+  .hero__btn {
+    box-sizing: content-box;
+    padding: 8px 20px;
+    margin: 0;
+    border: none;  
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    background-color:var(--bg-dark);
+    color: white;
+  }
+
+  .hero__btn:hover {
+    opacity: 0.6;  
+    cursor: pointer;
+    transition: opacity 0.7s ease;
+  }
+
+  .hero__btn_active {
+     background-color: var(--bt-green);
+     transition: opacity 0.7s ease;
+     color: black;
+     margin-left: 10px;
+   }
+ 
+   .hero__btn_active:hover {
+     cursor: pointer;
+     opacity: 0.6;
+   }
+
+   @media screen and (max-width: 800px) {
+    .hero__content {
+      padding: 18px 30px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .hero__content{
+      padding: 18px 14px;
+    }
+    .hero__btn {
+        padding: 5px 12px;
+        font-size: 10px;
+    }
+  }
+  

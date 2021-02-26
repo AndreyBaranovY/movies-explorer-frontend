@@ -1,34 +1,56 @@
-import Logo from '../Logo/Logo';
+import { Link, useLocation } from 'react-router-dom'; 
 import './Header.css';
+import Logo from '../Logo/Logo';
+import ProfilePath from '../../images/profile.svg';
+import Menu from '../Menu/Menu';
+import Navigation from '../Navigation/Navigation';
+import Hamburger from '../Hamburger/Hamburger';
 
 
-export default function Header(props) {
-    
-  
+export default function Header({isMobileMenuOpened, onHamburgerClick}) {
+  const { pathname } = useLocation();
+
+  if(pathname === "/"){
     return (
-      <header className='header'>
-       <Logo />
-       HEADER  PICTURE HERE
-       <ul className='header__links'>
-          <li>
-            <a
-              className='header__link'
-              href='#'
-              rel='noopener noreferrer'>О проекте</a>
-          </li>
-          <li>
-            <a
-              className='header__link'
-              href='#'
-              rel='noopener noreferrer'>Технологии</a>
-          </li>
-          <li>
-            <a
-              className='header__link'
-              href= '#'
-              rel='noopener noreferrer'>Студент</a>
-          </li>
-          </ul>
+      <header className='hero'>
+         <div className="hero__content">
+           <Link to="/"> 
+             <Logo />
+           </Link> 
+           <div className="hero__nav">
+             <Link to="/signup"> 
+               <button  className="hero__btn" >Регистрация</button>
+             </Link> 
+             <Link to="/signin"> 
+                <button  className="hero__btn hero__btn_active" >Войти</button>
+             </Link> 
+           </div>  
+         </div>  
       </header >
     )
+  } else {
+
+
+  return (
+    <header className='header'>
+      <div className="header__content">
+        <Link to="/"> 
+          <Logo />
+        </Link> 
+        < Menu 
+           isMobileMenuOpened={isMobileMenuOpened}
+           onHamburgerClick={onHamburgerClick}
+        />
+       
+        <div className="header__profile">
+          <Link to="/profile"> 
+            <img className="header__profile-pic" src={ProfilePath} alt="профайл пользователя" />
+         </Link> 
+        </div>  
+      </div>  
+    </header >
+  )
   }
+
+}
+

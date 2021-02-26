@@ -53,6 +53,14 @@
     width: 100px;
     height: 100px;
     position: relative;
+    visibility: visible;
+}
+
+.preloader__container_invisible {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    visibility: hidden;
 }
 
 .preloader__round {

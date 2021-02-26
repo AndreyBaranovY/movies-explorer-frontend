@@ -1,10 +1,22 @@
+import './NavTab.css';
+
+
 export default function NavTab(props) {
     
   
     return (
-      <nav class="nav nav-pills nav-fill">
-  <a class="nav-item nav-link active" href="#">1 неделя</a>
-  <a class="nav-item nav-link" href="#">4 недели</a>
-</nav>
+      <nav className="nav-tab"> 
+      <ul className='nav-tab__links'>
+        <li>
+          <a className='nav-tab__link' href='#' rel='noopener noreferrer'>О проекте</a>
+        </li>
+        <li>
+          <a className='nav-tab__link' href='#' rel='noopener noreferrer'>Технологии</a>
+        </li>
+        <li>
+           <a className='nav-tab__link' href= '#' rel='noopener noreferrer'>Студент</a>
+        </li>
+      </ul>
+     </nav> 
     )
   }
