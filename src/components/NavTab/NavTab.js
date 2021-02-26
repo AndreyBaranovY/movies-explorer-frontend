@@ -8,13 +8,13 @@ export default function NavTab(props) {
       <nav className="nav-tab"> 
       <ul className='nav-tab__links'>
         <li>
-          <a className='nav-tab__link' href='#' rel='noopener noreferrer'>О проекте</a>
+          <a className='nav-tab__link' href='#about-project' rel='noopener noreferrer'>О проекте</a>
         </li>
         <li>
-          <a className='nav-tab__link' href='#' rel='noopener noreferrer'>Технологии</a>
+          <a className='nav-tab__link' href='#techs' rel='noopener noreferrer'>Технологии</a>
         </li>
         <li>
-           <a className='nav-tab__link' href= '#' rel='noopener noreferrer'>Студент</a>
+           <a className='nav-tab__link' href= '#student' rel='noopener noreferrer'>Студент</a>
         </li>
       </ul>
      </nav> 

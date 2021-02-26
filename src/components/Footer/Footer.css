@@ -1,6 +1,12 @@
 .footer {
+    display: block;
     background-color: #FAFAFA;
 }
+
+.footer__profile {
+  display: none;
+}
+
 .footer__container {
     padding: 0 70px 20px;
     display: flex;  

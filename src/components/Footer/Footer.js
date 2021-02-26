@@ -1,10 +1,11 @@
 import React from 'react';
 import './Footer.css';
-export default function Footer(props) {
+export default function Footer({isProfileOpen}) {
     
+  const footerClassName = `${isProfileOpen ? 'footer__profile' : 'footer'}`;
   
     return (
-      <footer className='footer' >
+      <footer className={footerClassName} >
         <div className="footer__container">
         <div className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</div>
         <span className="footer__line"/>

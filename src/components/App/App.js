@@ -15,9 +15,15 @@ function App() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   const [currentRow, setCurrentRow] = useState(0);
   const [isLoading, setLoading] = useState(false);
- 
-  const handleClickHamburger = () =>{
+  const [isProfileOpen, setProfileOpen] = useState(false);
+
+
+  const handleClickHamburger = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened);
+  };
+
+  const handleProfileOpen = () => {
+    setProfileOpen(!isProfileOpen);
   };
 
   function handleShowMore() {
@@ -25,47 +31,51 @@ function App() {
   };
 
 // Выход
-function handleSignOut() {
- console.log(" I will be back ...")
-};
+  function handleSignOut() {
+    console.log(" I will be back ...")
+  };
 
 
 
   return (
     <div className="App">
   
-<Header 
-  isMobileMenuOpened={isMobileMenuOpened}
-  onHamburgerClick={handleClickHamburger}
-
-/>
-<Switch>
-  <Route exact path='/'>
-    <Main />
-  </Route>
-  <Route path='/movies'>
-    <Movies
-      isLoading={isLoading} 
-      onShowMore={handleShowMore}
-      currentRow={currentRow}
-     />
-    </Route>  
-  <Route path='/saved-movies'>
-    <SavedMovies />         
-   </Route>             
-   <Route path='/profile'>
-    <Profile
-      onSignOut={handleSignOut}
-     />
-    </Route>  
-  <Route path='/signin'>
-    <Signin />         
-   </Route>       
-   <Route path='/signup'>
-    <Register />         
-   </Route>       
-</Switch>
-<Footer />
+      <Header 
+        isMobileMenuOpened={isMobileMenuOpened}
+        onHamburgerClick={handleClickHamburger}
+        onProfileOpen={handleProfileOpen}
+      />
+      <Switch>
+        <Route exact path='/'>
+          <Main />
+        </Route>
+        <Route path='/movies'>
+          <Movies
+            isLoading={isLoading} 
+            onShowMore={handleShowMore}
+            currentRow={currentRow}
+          />
+        </Route>  
+        <Route path='/saved-movies'>
+          <SavedMovies />         
+       </Route>             
+       <Route path='/profile'>
+           <Profile
+          
+             onSignOut={handleSignOut}
+           />
+       </Route>  
+       <Route path='/signin'>
+           <Signin />         
+       </Route>       
+       <Route path='/signup'>
+          <Register 
+          />         
+       </Route>       
+      </Switch>
+   <Footer 
+      isProfileOpen={isProfileOpen}
+   />
     </div>
   );
 }

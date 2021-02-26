@@ -7,7 +7,7 @@ import Navigation from '../Navigation/Navigation';
 import Hamburger from '../Hamburger/Hamburger';
 
 
-export default function Header({isMobileMenuOpened, onHamburgerClick}) {
+export default function Header({isMobileMenuOpened, onHamburgerClick , onProfileOpen}) {
   const { pathname } = useLocation();
 
   if(pathname === "/"){
@@ -40,6 +40,7 @@ export default function Header({isMobileMenuOpened, onHamburgerClick}) {
         < Menu 
            isMobileMenuOpened={isMobileMenuOpened}
            onHamburgerClick={onHamburgerClick}
+           onProfileOpen={onProfileOpen}
         />
        
         <div className="header__profile">

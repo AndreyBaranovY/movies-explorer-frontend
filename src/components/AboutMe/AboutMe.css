@@ -27,31 +27,29 @@ text-align: left;
     text-align: left;
 } 
 
-.about-me__content_article-header{
-    margin: 0;  
-   
-    margin-bottom: 25px;
-    font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 20px;
- mix-blend-mode: normal;
+.about-me__content_article-header {
+  margin: 0;  
+  margin-bottom: 25px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+   mix-blend-mode: normal;
 } 
 
-.about-me__content_article-text {  
-    
-    font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 22px;
-margin: 0;
-margin-bottom: 100px;
+.about-me__content_article-text {    
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 100px;
 } 
 
 .about-me__content-tab {
-    display: flex;
+  display: flex;
 } 
 
 .about-me__content_pic-container {

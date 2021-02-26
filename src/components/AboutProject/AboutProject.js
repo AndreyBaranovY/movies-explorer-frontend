@@ -6,7 +6,7 @@ export default function AboutProject(props) {
 
   
     return (
-     <div className="main__container">
+     <div className="main__container" id="about-project">
        <h2 className="main__name">О проекте</h2>
        <span className="main__line"/>
        <div className="main__articles">

@@ -105,7 +105,7 @@
     color: #B6BCBF;
   }
   
-  @media only screen and (max-width:1300px){
+  @media only screen and (max-width:2300px){
     .search-form__button{
       width: 160px;
       min-height: 56px;

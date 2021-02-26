@@ -3,7 +3,7 @@ export default function Techs(props) {
     
   
     return (
-        <div className="techs__container">
+        <div className="techs__container" id="techs">
           <h2 className="main__name">Технологии</h2>
           <span className="main__line"/>
       

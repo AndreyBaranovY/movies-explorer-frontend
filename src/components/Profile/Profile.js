@@ -5,6 +5,7 @@ import './Profile.css';
 
 
 export default function Profile({ onSignOut }) {
+
     
   const buttonClassName = "button__profile";
     return (
