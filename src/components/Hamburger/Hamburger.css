@@ -110,6 +110,9 @@
     .hamburger_opened {
       margin: 24px 26px 0 0;
     }
+    .hamburger_closed {
+      margin-left: auto;
+    }
   }
 
   @media screen and (max-width: 500px) { 

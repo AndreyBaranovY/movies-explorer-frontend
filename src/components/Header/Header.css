@@ -1,10 +1,13 @@
 .header {
+    /* display: flex;
+    justify-content:left; */
     background-color: white;
 }
 
 .header__content {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+   
     align-items: center;
     padding: 18px 70px;
 }
@@ -21,7 +24,7 @@
     background-color:var(--bg-dark);
     color: white;
   }
-
+/* 
   .header__btn:hover {
     opacity: 0.6;  
     cursor: pointer;
@@ -38,7 +41,7 @@
    .header__btn_active:hover {
      cursor: pointer;
      opacity: 0.6;
-   }
+   } */
 
    @media screen and (max-width: 800px) {
     .header__content {

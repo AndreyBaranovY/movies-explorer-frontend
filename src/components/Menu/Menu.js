@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Navigation';
 
 import './Menu.css';
 
-function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen }){
+function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen}){
 
   const navigationClassName = `${isMobileMenuOpened ? 'navigation_mobile' : 'navigation'}`;
  
@@ -13,34 +13,35 @@ function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen }){
   if(!isMobileMenuOpened) {
     return(
       <div className="menu">
-        
-            <Navigation 
-              navigationClassName={navigationClassName} 
-              onHamburgerClick={onHamburgerClick}  
-
-            />   
-               <Hamburger
-              isMobileMenuOpened={isMobileMenuOpened}
-              onHamburgerClick={onHamburgerClick}
-            />      
+        <Hamburger
+          isMobileMenuOpened={isMobileMenuOpened}
+          onHamburgerClick={onHamburgerClick}
+          
+        />  
+       <Navigation 
+          navigationClassName={navigationClassName} 
+                        onHamburgerClick={onHamburgerClick}  
+          onProfileOpen={onProfileOpen}   
+         
+        />   
+                   
      </div>
     )
   } else {
     return(
       <div className="menu_mobile">
-         {/* <div className="menu__overlay">   */}
           <div className="menu__container">
             <Navigation 
               navigationClassName={navigationClassName}  
               onHamburgerClick={onHamburgerClick}   
               onProfileOpen={onProfileOpen}   
+              isMobileMenuOpened={isMobileMenuOpened}
             />
             <Hamburger
               isMobileMenuOpened={isMobileMenuOpened}
               onHamburgerClick={onHamburgerClick}
             />
            </div>
-         {/* </div> */}
      </div>
     )
 

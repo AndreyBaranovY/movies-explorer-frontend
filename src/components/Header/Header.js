@@ -33,21 +33,22 @@ export default function Header({isMobileMenuOpened, onHamburgerClick , onProfile
 
   return (
     <header className='header'>
-      <div className="header__content">
+       <div className="header__content"> 
         <Link to="/"> 
           <Logo />
         </Link> 
+        
         < Menu 
            isMobileMenuOpened={isMobileMenuOpened}
            onHamburgerClick={onHamburgerClick}
            onProfileOpen={onProfileOpen}
         />
        
-        <div className="header__profile">
+        {/* <div className="header__profile">
           <Link to="/profile"> 
             <img className="header__profile-pic" src={ProfilePath} alt="профайл пользователя" />
          </Link> 
-        </div>  
+        </div>   */}
       </div>  
     </header >
   )

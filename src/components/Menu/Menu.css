@@ -1,5 +1,7 @@
 .menu {
-  display: block;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .menu_mobile {
@@ -42,7 +44,7 @@
   top: 0;
   right: 0;
   z-index: 5;
-  outline: 1px solid blue;
+  outline: 1px dashed gree;
  
 } 
 

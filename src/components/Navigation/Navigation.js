@@ -1,22 +1,29 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import ProfilePath from '../../images/profile.svg';
+import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
 
 
-function Menu({ onHamburgerClick, onProfileOpen, navigationClassName, savedMovies }){
+function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen, navigationClassName, savedMovies }){
        
-  const onClicks = (e) => {
+  const onClicks = (e) => { 
+    if (isMobileMenuOpened) 
     onHamburgerClick(); 
-    onProfileOpen();
   }
 
+  const onClicksProfile = (e) => { 
+    if (isMobileMenuOpened) {
+    onHamburgerClick(); 
+    onProfileOpen();
+    } else {
+      onProfileOpen();
+    }
+  }
 
     return(
       <div className={navigationClassName}>
         <div className="navigation__container">
-        <NavLink 
+         <NavLink 
             to='/' 
             className= "navigation__to-main"
             activeClassName="navigation__title_active"  
@@ -24,12 +31,12 @@ function Menu({ onHamburgerClick, onProfileOpen, navigationClassName, savedMovie
           >
             Главная
           </NavLink>
-
+          <div className="navigation__films-container">
           <NavLink 
             to='/movies' 
             className={savedMovies ? "navigation__title navigation__title_savedMovies" : "navigation__title"} 
-            activeClassName="navigation__title_active"   
-            onClick={onHamburgerClick}      
+            activeClassName="navigation__title_active"     
+            onClick={onClicks} 
           >
             Фильмы
           </NavLink> 
@@ -37,28 +44,20 @@ function Menu({ onHamburgerClick, onProfileOpen, navigationClassName, savedMovie
             to='/saved-movies' 
             className={savedMovies ? "navigation__title menu__title_savedMovies" : "navigation__title"}  
             activeClassName={savedMovies ? "navigation__title_active_savedMovies" : "navigation__title_active"} 
-            onClick={onHamburgerClick}    
+            onClick={onClicks}  
           >
             Сохранённые фильмы
           </NavLink>
-        </div>
+          </div>
 
         <NavLink
             to="/profile"
             className="navigation__profile"  
-            onClick={onClicks}
-                
+            onClick={onClicksProfile}
             >
           </NavLink>
          
-
-
-         {/* <div className="navigation__profile">
-         <Link to="/profile"> 
-            <img className="navigation__profile-img" src={ProfilePath} alt="профайл пользователя" />
-          </Link>
-        </div>    */}
-
+          </div>
       </div>
     )
 

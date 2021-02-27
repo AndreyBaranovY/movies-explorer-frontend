@@ -30,8 +30,8 @@ function App() {
     setCurrentRow(currentRow + 1);
   };
 
-// Выход
-  function handleSignOut() {
+
+  function handleSignOut() { // Выход
     console.log(" I will be back ...")
   };
 
@@ -44,6 +44,7 @@ function App() {
         isMobileMenuOpened={isMobileMenuOpened}
         onHamburgerClick={handleClickHamburger}
         onProfileOpen={handleProfileOpen}
+       
       />
       <Switch>
         <Route exact path='/'>
