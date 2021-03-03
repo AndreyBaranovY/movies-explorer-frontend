@@ -42,7 +42,7 @@ function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen, navigationC
           </NavLink> 
           <NavLink 
             to='/saved-movies' 
-            className={savedMovies ? "navigation__title menu__title_savedMovies" : "navigation__title"}  
+            className={savedMovies ? "navigation__title_active menu__title_savedMovies" : "navigation__title"}  
             activeClassName={savedMovies ? "navigation__title_active_savedMovies" : "navigation__title_active"} 
             onClick={onClicks}  
           >

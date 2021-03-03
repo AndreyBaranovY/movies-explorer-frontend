@@ -15,8 +15,8 @@ export default function AboutMe(props) {
             <p className="about-me__content_article-text">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена 
 и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
             <div className="about-me__content-tab">
-               <a className="about__content-tab-text" href="https://facebook.com">Facebook</a >
-               <a  className="about__content-tab-text" href="https://github.com">GitHub</a >
+               <a className="about__content-tab-link" href="https://facebook.com" target="_blank" rel='noopener noreferrer'>Facebook</a >
+               <a  className="about__content-tab-link" href="https://github.com/AndreyBaranovY" target="_blank" rel='noopener noreferrer'>GitHub</a >
             </div>
           </div >
 

@@ -1,10 +1,5 @@
 .footer {
-    display: block;
     background-color: #FAFAFA;
-}
-
-.footer__profile {
-  display: none;
 }
 
 .footer__container {
@@ -51,6 +46,12 @@
     color: black;
   }
 
+ .footer__link:hover {
+    opacity: 0.8;
+    color: var(--bt-green);
+    transition: opacity 0.6s ease;
+  }
+
   @media screen and (max-width: 500px) {
     .footer__container {
         padding: 0 10px 10px;
@@ -78,3 +79,4 @@
         line-height: 15px; 
     }
   }
+  

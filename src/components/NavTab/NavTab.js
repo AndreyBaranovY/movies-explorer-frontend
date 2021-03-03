@@ -8,7 +8,7 @@ export default function NavTab(props) {
       <nav className="nav-tab"> 
       <ul className='nav-tab__links'>
         <li>
-          <a className='nav-tab__link' href='#about-project' rel='noopener noreferrer'>О проекте</a>
+          <a className='nav-tab__link' href='#about-project' >О проекте</a>
         </li>
         <li>
           <a className='nav-tab__link' href='#techs' rel='noopener noreferrer'>Технологии</a>

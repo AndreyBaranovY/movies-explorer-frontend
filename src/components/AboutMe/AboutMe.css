@@ -67,13 +67,20 @@ text-align: left;
     display: flex;
 } 
 
-.about__content-tab-text {
+.about__content-tab-link {
+    text-decoration: none;
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
     margin-right: 20px;
+    color: black;
+}
+.about__content-tab-link:hover {
+    opacity: 0.8;
+    color: var(--bt-green);
+    transition: opacity 0.6s ease;  
 }
 
 @media screen and (max-width: 500px) {

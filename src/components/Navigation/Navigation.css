@@ -10,9 +10,7 @@
   display: flex;
   justify-content:space-between; 
 }
-
-       
-
+      
 .navigation__films-container {
   display: flex;
   background-color: white;
@@ -28,8 +26,6 @@
    background: url(../../images/profile.svg);
    
  }
-
-
 
 .navigation__to-main {
 display: none;
@@ -60,7 +56,6 @@ display: none;
   font-weight: 500;
 }
 
-
 .navigation__title:hover {
   opacity: 0.6;  
   cursor: pointer;
@@ -70,8 +65,6 @@ display: none;
 .navigation__profile {
   background-image: src='../../images/profile.svg';
 }
-
-
 
 @media only screen and (max-width: 800px){
   .navigation {
@@ -86,7 +79,7 @@ display: none;
     align-items: center;
     justify-content:space-between; 
     margin: 159px auto 100px;
-    outline: 1px solid green;
+    /* outline: 1px solid green; */
   }
 
   .navigation__container {
@@ -94,7 +87,6 @@ display: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
-    outline: 1px dashed red;
   }
 
   .navigation__films-container {
@@ -102,21 +94,20 @@ display: none;
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: start; 
+    justify-content: flex-start; 
     justify-items: center;
     margin: 0 auto;
-    outline: 1px dashed blue;
   }
 
-        .navigation__profile {
-          position: static;
-          margin: 0 auto;
-          margin-top: auto;
-          width: 100px;
-          height: 30px;
-          background: url(../../images/profile.svg);
-        }
-
+  .navigation__profile {
+    position: static;
+    margin: 0 auto;
+    margin-top: auto;
+    width: 100px;
+    height: 30px;
+    background: url(../../images/profile.svg);
+  }
+  
   .navigation__title {
     background-color: white;
     font-family: Inter;
@@ -131,6 +122,14 @@ display: none;
     text-decoration: none;
   }
 
+  .navigation__title:hover {
+    text-decoration: underline;
+  }
+
+  .navigation__title_active {
+    text-decoration: underline;
+  }
+   
   .navigation__to-main {
     display: block;
     background-color: white;
@@ -143,8 +142,12 @@ display: none;
     margin-bottom: 28px;
     color: black;
     text-decoration: none;
-}
-} 
+  }
+  .navigation__to-main:hover {
+  text-decoration: underline;
+  }
+
+}  
 
 @media only screen and (min-width: 800px){
   

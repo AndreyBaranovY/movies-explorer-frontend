@@ -1,58 +1,46 @@
-import { Link, useLocation } from 'react-router-dom'; 
+import { NavLink, useLocation } from 'react-router-dom'; 
 import './Header.css';
 import Logo from '../Logo/Logo';
-import ProfilePath from '../../images/profile.svg';
 import Menu from '../Menu/Menu';
-import Navigation from '../Navigation/Navigation';
-import Hamburger from '../Hamburger/Hamburger';
 
-
-export default function Header({isMobileMenuOpened, onHamburgerClick , onProfileOpen}) {
+export default function Header({isProfileOpen, isMobileMenuOpened, onHamburgerClick , onProfileOpen, onSelectLogin, onSelectRegister }) {
   const { pathname } = useLocation();
 
   if(pathname === "/"){
     return (
       <header className='hero'>
          <div className="hero__content">
-           <Link to="/"> 
+           <NavLink to="/"> 
              <Logo />
-           </Link> 
-           <div className="hero__nav">
-             <Link to="/signup"> 
-               <button  className="hero__btn" >Регистрация</button>
-             </Link> 
-             <Link to="/signin"> 
-                <button  className="hero__btn hero__btn_active" >Войти</button>
-             </Link> 
+           </NavLink> 
+           <div className="hero__links-container">
+             <NavLink to="/signup" className="hero__link"
+                onClick={onSelectRegister}> 
+                Регистрация
+             </NavLink> 
+             <NavLink to="/signin" className="hero__link hero__link_active"
+                onClick={onSelectLogin}> 
+                Войти
+             </NavLink> 
            </div>  
          </div>  
       </header >
     )
   } else {
-
-
-  return (
-    <header className='header'>
-       <div className="header__content"> 
-        <Link to="/"> 
-          <Logo />
-        </Link> 
-        
-        < Menu 
-           isMobileMenuOpened={isMobileMenuOpened}
-           onHamburgerClick={onHamburgerClick}
-           onProfileOpen={onProfileOpen}
-        />
-       
-        {/* <div className="header__profile">
-          <Link to="/profile"> 
-            <img className="header__profile-pic" src={ProfilePath} alt="профайл пользователя" />
-         </Link> 
-        </div>   */}
-      </div>  
-    </header >
-  )
+    return (
+     <header className='header' style={isProfileOpen ? {zIndex: 50} : {zIndex:0 } }>
+        <div className="header__content"> 
+         <NavLink to="/"> 
+           <Logo />
+         </NavLink>        
+         < Menu 
+            isMobileMenuOpened={isMobileMenuOpened}
+            onHamburgerClick={onHamburgerClick}
+            onProfileOpen={onProfileOpen}
+         />
+       </div>  
+     </header >
+   )
   }
-
 }
 

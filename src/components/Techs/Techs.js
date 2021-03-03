@@ -13,10 +13,13 @@ export default function Techs(props) {
             </article >
          
           <div className="techs__tab">
-            <div className="techs__tab-text">HTML</div ><div  className="techs__tab-text">CSS</div >
-            <div  className="techs__tab-text">JS</div ><div  className="techs__tab-text">REACT</div >
-            <div className="techs__tab-text">Git</div ><div  className="techs__tab-text">Express.js</div >
-            <div  className="techs__tab-text">MongoDB</div >
+            <a className="techs__tab-link" href="https://html.spec.whatwg.org/multipage/" target="_blank" rel='noopener noreferrer'>HTML</a > 
+            <a className="techs__tab-link" href="https://www.w3.org/Style/CSS/ps://html.spec.whatwg.org/multipage/" target="_blank" rel='noopener noreferrer'>CSS</a >
+            <a className="techs__tab-link" href="https://ru.wikipedia.org/wiki/JavaScript" target="_blank" rel='noopener noreferrer'>JS</a >
+            <a className="techs__tab-link" href="https://ru.reactjs.org/" target="_blank" rel='noopener noreferrer'>REACT</a >
+            <a className="techs__tab-link" href="https://git-scm.com/" target="_blank" rel='noopener noreferrer'>Git</a > 
+            <a className="techs__tab-link" href="https://expressjs.com/ru/" target="_blank" rel='noopener noreferrer'>Express.js</a >
+            <a className="techs__tab-link" href="https://www.mongodb.com/" target="_blank" rel='noopener noreferrer'>MongoDB</a >
           </div>
         </div>
        )

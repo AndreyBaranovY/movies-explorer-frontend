@@ -8,18 +8,6 @@ export default function Signin(props) {
   const emailField = useValidation();
   const passwordField = useValidation();
 
-  // return (
-  //   <div >
-  //     <PopupWithForm
-  //        title="Рады видеть!"
-  //        error="Правильно введите E-mail ..."
-  //        errorp="Что-то пошло не так ..."
-  //        textBeforeBtn ="Ещё не зарегистрированы?"
-  //        buttonName="Войти"
-  //        childrenLink="Регистрация"
-  //     />  
-  //   </div>
-  // )
   function handleLogin(evt) {
     evt.preventDefault();
     onLogin(emailField.value, passwordField.value);
@@ -34,6 +22,7 @@ export default function Signin(props) {
     passwordField.setIsValid(false);
     onClose();
   };
+
   return (
     <PopupWithForm
       formName='login'
@@ -45,7 +34,8 @@ export default function Signin(props) {
       authError={authError}
       disabled={disabled}
       submitButtonText='Войти'
-      subtitleText='Ещё не зарегистрированны? '>
+      subtitleText='Ещё не зарегистрированны? '
+      linkName = 'Зарегистрироваться'>
 
       <legend className='popup__heading'>Рады видеть!</legend>
       <Input
@@ -75,7 +65,5 @@ export default function Signin(props) {
         inputFieldClassName='popup__input'
         placeholder='Введите пароль' />
     </PopupWithForm>
-  
   )
-
 }

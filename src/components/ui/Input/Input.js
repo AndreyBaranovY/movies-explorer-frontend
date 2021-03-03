@@ -34,8 +34,8 @@ export default function Input(props) {
         onChange={onChange}
         className={`input__field ${inputFieldClassName}`}
         placeholder={placeholder}
-        disabled={disabled}
-      ></input>
+        disabled={disabled}>
+        </input>
       <span
         className={`input__error ${name}__input-error ${!isValid && `${name}__input-error_active`}`}
         id={`${name}-error`}>

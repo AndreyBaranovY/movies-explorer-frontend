@@ -4,7 +4,7 @@
     border-radius: 100px;
     box-sizing: border-box;
     font-family: Inter;
-  }
+  } 
   
   .input__field {
     width: 100%;
@@ -16,10 +16,11 @@
   }
   
   .input__field:disabled {
-    color: lightgrey;
+    color: white;
   }
   
   .input__error {
+    /* inherits: none; */
     display: block;  
        /* margin-top: 3px; */
     font-style: normal;
@@ -28,6 +29,10 @@
     line-height: 12px;
     color: #EE3465;
     min-height: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
   }
   
+  .input__error_active {
+    color: #EE3465;
+  }
+

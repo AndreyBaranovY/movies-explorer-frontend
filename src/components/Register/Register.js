@@ -1,46 +1,11 @@
-
-// import PopupWithForm from '../PopupWithForm/PopupWithForm';
-
-// export default function Register(props) {
-
-
-  // return (
-  //   <div >
-  //    <PopupWithForm
-  //      title="Добро пожаловать!"
-  //      error="Правильно введите E-mail ..."
-  //      errorp="Что-то пошло не так ..."
-  //      textBeforeBtn ="Уже зарегистрированы?"
-  //      buttonName="Зарегистрироваться"
-  //      childrenLink="Войти"
-  //      children ={
-  //        <div>
-  //          <p className="popup__label">Имя</p>
-  //          <input 
-  //            type="text" 
-  //             placeholder="Введите своё имя"
-  //             className="popup__input" 
-  //             id="name-input" 
-  //             name="name"
-  //             required 
-  //             minLength="2" 
-  //             maxLength="30" 
-  //           />
-  //        </div>
-  //      }
-  //     > 
-  //    </PopupWithForm>
-  //  </div >
-  // )
-// }
-
 import React from 'react';
 import Input from '../ui/Input/Input';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+
 import { useValidation } from '../../utils/validation';
 
 export default function Register(props) {
-  const { isOpen, onClose, onChangeForm, onRegister, authError, disabled } = props;
+  const { isOpen, onClose, onChangeForm, onRegister, authError, disabled  } = props;
 
   const emailField = useValidation();
   const nameField = useValidation();
@@ -75,8 +40,21 @@ export default function Register(props) {
       authError={authError}
       disabled={disabled}
       submitButtonText='Зарегистрироваться'
-      subtitleText='Уже зарегистрированны? '>
+      subtitleText='Уже зарегистрированны? '
+      linkName = 'Войти'>
       <legend className='popup__heading'>Добро пожаловать!</legend>
+      <Input
+        label='Имя'
+        name='name'
+        formName='reg'
+        minLength='2'
+        maxLength='30'
+        type='text'
+        required={true}
+        {...nameField}
+        inputLabelClassName='popup__input-label'
+        inputFieldClassName='popup__input'
+        placeholder='Введите имя' />
       <Input
         label='E-mail'
         name='email'
@@ -103,18 +81,7 @@ export default function Register(props) {
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
         placeholder='Введите пароль' />
-      <Input
-        label='Имя'
-        name='name'
-        formName='reg'
-        minLength='2'
-        maxLength='30'
-        type='text'
-        required={true}
-        {...nameField}
-        inputLabelClassName='popup__input-label'
-        inputFieldClassName='popup__input'
-        placeholder='Введите имя' />
+   
     </PopupWithForm>
   )
 }
