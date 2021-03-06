@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from '../Header/Header';
@@ -18,7 +18,7 @@ function App() {
   const [isRegisterOpen, setRegisterOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isTooltipOpen, setTooltipOpen] = useState(false);
-  const [isProfileOpen, setOpenProfile] = useState(false);
+  const [isProfileOpen, setProfileOpen] = useState(false);
   const [authError, setAuthError] = useState('');
 
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
@@ -33,6 +33,7 @@ function App() {
   function handlePopupsClose() {
     setRegisterOpen(false);
     setLoginOpen(false);
+    setProfileOpen(false);
     setTooltipOpen(false);
     setAuthError('');
   };
@@ -54,6 +55,8 @@ function App() {
     setAuthError('');
     setLoginOpen(!isLoginOpen);
     setRegisterOpen(!isRegisterOpen);
+    console.log(`Login: ${isLoginOpen} 
+                Register: ${isRegisterOpen}`);
   }; 
 
   function handleOpenLogin() {
@@ -63,7 +66,7 @@ function App() {
   };
 
   const handleOpenProfile = () => {
-    setOpenProfile(!isProfileOpen);
+    setProfileOpen(!isProfileOpen);
   };
 
   function handleShowMore() {
@@ -90,19 +93,18 @@ function App() {
 
   function handleEditProfile(name, email) {
     setDisabled(true);
-    setOpenProfile(false);
+    setProfileOpen(false);
     setTooltipOpen(true);
     console.log(`Перезаписываем: имя - ${name}  почту - ${email}`);
     setDisabled(false);
   };
+
   function handleSignOut() { // Выход
     setLoggedIn(false);
     setCurrentUser({});
     history.push('/');
     console.log(" Как говорится: I will be back ...");
   };
-
-
 
   return (
     <div className="App"> 
@@ -113,8 +115,7 @@ function App() {
         isProfileOpen={isProfileOpen}
         isLoggedIn={isLoggedIn}
         onSelectLogin={handleLoginPopupOpen}
-        onSelectRegister={handleRegisterPopupOpen}
-      />
+        onSelectRegister={handleRegisterPopupOpen}/>
       <Switch>
         <Route exact path='/'>
           <Main />
@@ -123,60 +124,47 @@ function App() {
           <Movies
             isLoading={isLoading} 
             onShowMore={handleShowMore}
-            currentRow={currentRow}
-          />
+            currentRow={currentRow} />        
         </Route>  
         <Route path='/saved-movies'>
           <SavedMovies />         
         </Route>             
-        <Route path='/profile'>
-            {/* <Profile
-              onSignOut={handleSignOut}
-              isOpen={isProfileOpen}
-              onClose={handlePopupsClose}
-              onChangeForm={handleTogglePopup}
-              authError={authError}
-              onProfile={handleEditProfile}
-              disabled={disabled} />         */}
-        </Route>  
-        <Route path='/signin' />           
-        <Route path='/signup' />
+        <Route path='/profile'/>
+        <Route path='/signin'/>  
+        <Route path='/signup'/>
         <Route path="*">
           <PageNotFound />
         </Route>    
       </Switch>
       <Footer />
 
-
-  <Register
-      isOpen={isRegisterOpen}
-      onClose={handlePopupsClose}
-      onChangeForm={handleTogglePopup}
-      onRegister={handleRegister}
-      authError={authError} />
-  <Signin
-      isOpen={isLoginOpen}
-      onClose={handlePopupsClose}
-      onChangeForm={handleTogglePopup}
-      authError={authError}
-      onLogin={handleLogin}
-      disabled={disabled} />
-  <InfoTooltip
-      isOpen={isTooltipOpen}
-      onClose={handlePopupsClose}
-      onChangeForm={handleOpenLogin}
-      disabled={disabled} 
-      message = "Пользователь успешно зарегистрирован!"/>
-
-  <Profile
-      onSignOut={handleSignOut}
-      isOpen={isProfileOpen}
-      onClose={handlePopupsClose}
-      onChangeForm={handleTogglePopup}
-      authError={authError}
-      onProfile={handleEditProfile}
-      disabled={disabled} 
-      />  
+      <Profile
+        onSignOut={handleSignOut}
+        isOpen={isProfileOpen}
+        onClose={handlePopupsClose}
+        onChangeForm={handleTogglePopup}
+        authError={authError}
+        onProfile={handleEditProfile}
+        disabled={disabled} />   
+      <Signin
+        isOpen={isLoginOpen}
+        onClose={handlePopupsClose}
+        onChangeForm={handleTogglePopup}
+        authError={authError}
+        onLogin={handleLogin}
+        disabled={disabled} />
+      <Register
+        isOpen={isRegisterOpen}
+        onClose={handlePopupsClose}
+        onChangeForm={handleTogglePopup}
+        onRegister={handleRegister}
+        authError={authError} />
+      <InfoTooltip
+        isOpen={isTooltipOpen}
+        onClose={handlePopupsClose}
+        onChangeForm={handleOpenLogin}
+        disabled={disabled} 
+        message = "Пользователь успешно зарегистрирован!"/>
   </div>
   );
 }

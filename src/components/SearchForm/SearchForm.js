@@ -9,11 +9,11 @@ function SearchForm({CheckText, searchMovies}){
     setSearchText(e.target.value);
   }
 
-  const onFocus =()=> {
+  const onFocus = ()=> {
     setFocusInput(true)
   }
 
-  const onBlur =()=> {
+  const onBlur = ()=> {
     setFocusInput(false)
   }
   
@@ -24,18 +24,34 @@ function SearchForm({CheckText, searchMovies}){
   }
 
   return(
-    <div className="search-form__container">
+    <section className="search-form__container">
       <form className="search-form" onSubmit={handleSubmit}>
-        <input className="search-form__input" id="search-form" placeholder="Фильм" onChange={handleChange} onFocus={onFocus} onBlur={onBlur}></input>
+        <input 
+          className="search-form__input" 
+          id="search-form"
+          type="text"
+          name="search"
+          minLength='2'
+          maxLength='140'
+          required
+          autoComplete='off'
+          placeholder="Фильм"
+          onChange={handleChange} 
+          onFocus={onFocus} 
+          onBlur={onBlur} />
         <button className={focusInput ? "search-form__btn search-form__btn_active" : "search-form__btn"}> Найти</button>
       </form>
 
       <div className="search-form__cbx">
-          <input type="checkbox" id="cbx" className="cbx input"/>
-          <label for="cbx" className="label toggle "><span className="span"></span></label>   
-          <p className="search-form__label">Короткометражки</p>
+          <input 
+          className="search-form__cbx-input"
+          id="filter"
+          type="checkbox"
+          value="" />
+          <label htmlFor="filter" className="label toggle "><span className="span"></span></label>   
+          <p className="search-form__cbx-text">Короткометражки</p>
       </div>
-    </div>
+    </section>
   
 
   )

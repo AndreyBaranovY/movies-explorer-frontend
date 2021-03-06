@@ -17,10 +17,45 @@ export default function PopupWithForm(props) {
       authError,
       disabled,
       subtitleText,
-      linkName,
       onSignOut
     } = props;
     
+    if(formName === 'profile') {
+      return (
+        <div className={`popup popup_type_profile ${isOpen && 'popup_opened'}`}>
+        <div
+          className='popup__overlay'
+          onClick={onClose}>
+        </div>
+        <form
+          className={`popup__form ${formName}__form`}
+          name={formName}
+          onSubmit={onSubmit}>
+            <fieldset
+                className='popup__input-container_profile '
+                disabled={disabled}>
+                {children}
+            </fieldset>
+            <span className='popup__error'>{authError}</span>
+            <div className="popup__profile-buttons">
+              <Button
+                 buttonClassName='button__profile'
+                 onClick={onSubmit}
+                 disabled={!isFormValid}>
+                 Редактировать
+               </Button>
+               <Button
+                 buttonClassName='button__profile button__profile_active'
+                 onClick={onSignOut}
+                 >
+                 Выйти из аккаунта
+               </Button>
+             </div>
+            </form>   
+          </div > 
+       )
+
+    } else {
 return (
   
   <div className={`popup popup_type_${formName} ${isOpen && 'popup_opened'}`}>
@@ -33,35 +68,30 @@ return (
       className={`popup__form ${formName}__form`}
       name={formName}
       onSubmit={onSubmit}>
-      { formName !== 'profile' &&
-         <div  className='popup__logo' onClick={onClose}>
-           <Logo/>
-        </div>
-      }
-        
+      <div  className='popup__logo' onClick={onClose}>
+        <Logo/>
+      </div>   
       <fieldset
-        className={formName !== 'profile' ? 'popup__input-container': 'popup__input-container_profile'}
+        className='popup__input-container'
         disabled={disabled}>
         {children}
       </fieldset>
       {formName !== 'tooltip' &&
         <>
           <span className='popup__error'>{authError}</span>
-
           <Button
-              buttonClassName={formName !== 'profile' ? 'popup__submit' : 'button__profile  button__profile_active'}
-              onClick={onSubmit}
-              disabled={!isFormValid}>
-              {submitButtonText}
-            </Button>
-
-
+            buttonClassName='popup__submit'
+            disabled={!isFormValid}
+            onClick={onSubmit}>
+            {submitButtonText}
+          </Button>
         </>
       }
       <span className='popup__subtitle'>{formName !== 'tooltip'  && `${subtitleText}`}
-      <span className={formName !== 'profile' ? 'popup__link' : 'button__profile'} onClick={formName !== 'profile' ? onChangeForm : onSignOut}>
-          {linkName}</span></span>
+      <span className='popup__link' onClick={onChangeForm}>
+      {formName !== 'login' ? 'Войти' : 'Зарегистрироваться'}</span></span>
     </form>   
   </div > 
- );
+  )
+    }
 };

@@ -4,7 +4,7 @@ import photoPath from '../../images/photo.png';
 
 export default function AboutMe(props) { 
     return (
-     <div className="main__container about-me__container" id="student">
+     <section className="main__container about-me__container" id="student">
        <h2 className="main__name about-me__name">Студент </h2>
        <span className="main__line"/>
        <div className="about-me__content">
@@ -24,6 +24,6 @@ export default function AboutMe(props) {
             <img className="about-me__pic" src={photoPath} alt="фото студента"/>
           </div >
         </div> 
-     </div>
+     </section>
     )
   }

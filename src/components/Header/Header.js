@@ -10,9 +10,7 @@ export default function Header({isProfileOpen, isMobileMenuOpened, onHamburgerCl
     return (
       <header className='hero'>
          <div className="hero__content">
-           <NavLink to="/"> 
-             <Logo />
-           </NavLink> 
+           <Logo />
            <div className="hero__links-container">
              <NavLink to="/signup" className="hero__link"
                 onClick={onSelectRegister}> 
@@ -30,9 +28,7 @@ export default function Header({isProfileOpen, isMobileMenuOpened, onHamburgerCl
     return (
      <header className='header' style={isProfileOpen ? {zIndex: 50} : {zIndex:0 } }>
         <div className="header__content"> 
-         <NavLink to="/"> 
-           <Logo />
-         </NavLink>        
+         <Logo />     
          < Menu 
             isMobileMenuOpened={isMobileMenuOpened}
             onHamburgerClick={onHamburgerClick}

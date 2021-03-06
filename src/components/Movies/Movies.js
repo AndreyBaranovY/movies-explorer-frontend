@@ -28,7 +28,7 @@ export default function Movies(props) {
     return (
       <div >      
         <SearchForm CheckText={CheckText} searchMovies={searchMovies} />
-         <Preloader isLoadind={isLoading}  />
+         {/* <Preloader isLoadind={isLoading}  /> */}
          <MoviesCardList
          moviesToRender={moviesToRender}
          isLoggedIn={isLoggedIn}

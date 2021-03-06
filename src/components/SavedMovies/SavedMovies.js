@@ -15,8 +15,7 @@ export default function SavedMovies(props) {
         <MoviesCardList
          moviesToRender={moviesToRender}
          savedMovies={savedMovies}       
-         />    
-         <SavedMoviesHeader />   
+         />      
       </section >
     )
   }

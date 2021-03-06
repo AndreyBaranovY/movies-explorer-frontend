@@ -35,7 +35,7 @@ export default function Signin(props) {
       disabled={disabled}
       submitButtonText='Войти'
       subtitleText='Ещё не зарегистрированны? '
-      linkName = 'Зарегистрироваться'>
+      >
 
       <legend className='popup__heading'>Рады видеть!</legend>
       <Input

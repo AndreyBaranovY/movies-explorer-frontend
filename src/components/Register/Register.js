@@ -41,7 +41,7 @@ export default function Register(props) {
       disabled={disabled}
       submitButtonText='Зарегистрироваться'
       subtitleText='Уже зарегистрированны? '
-      linkName = 'Войти'>
+      >
       <legend className='popup__heading'>Добро пожаловать!</legend>
       <Input
         label='Имя'

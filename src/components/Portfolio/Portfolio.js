@@ -4,9 +4,8 @@ export default function Portfolio(props) {
 
   
     return (
-     <div className="portfolio__container">
-       <h2 className="portfolio__header">Портфолио</h2>
-       
+     <section className="portfolio__container">
+       <h2 className="portfolio__header">Портфолио</h2>  
        <div className="portfolio__content">
           <div className="portfolio__content_article">
             <h3 className="portfolio__content_article-header">Статичный сайт</h3>
@@ -23,6 +22,6 @@ export default function Portfolio(props) {
             <a className="portfolio__content-link" href="https://github.com/AndreyBaranovY/react-mesto-api-full" target="_blank" rel='noopener noreferrer'>↗</a>
           </div >   
       </div>
-     </div>
+     </section>
     )
   }
