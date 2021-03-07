@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  
+  --bg-dark: #5C5C5C;
+  --bg-middleGrey: #F5F5F5;
+  
+  --bt-green: #2BE080;
+  --bt-lightgrey: #A0A0A0;
+}

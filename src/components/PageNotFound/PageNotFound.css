@@ -1,0 +1,63 @@
+.error404{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: visibility .4s ease-out, z-index 1s ease-out,
+    opacity .4s ease-out;
+    -moz-transition: visibility .4s ease-out, z-index 1s ease-out,
+    opacity .4s ease-out;
+    z-index: 3;
+  }
+ 
+   .error404__container {
+    width: 100%;
+    height: 100%;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     outline: 1px solid red;
+   }
+
+  .error404__heading {
+    margin: 0; 
+    font-family: Inter;
+    font-style: normal;   
+    font-weight: normal;
+    font-size: 140px;
+    line-height: 169px;
+    color: #1A1B22;
+  }
+
+  .error404__text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 184px;
+  }
+ 
+ .error404__link {
+   font-family: Inter;
+   font-size: 14px;
+   line-height: 17px;
+   color: #2BE080;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ 
+ .error404__link:hover {
+   cursor: url('../../images/pointer.svg'), pointer;
+   opacity: 0.8;
+   transition: opacity 0.6s ease;
+ }
+ 
+ @media only screen and (max-width:600px){
+   .popup__form {
+     max-width: 260px;
+   }
+ }
