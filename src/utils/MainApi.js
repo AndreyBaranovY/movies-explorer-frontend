@@ -2,14 +2,18 @@ import BadRequestError from '../errors/BadRequestError';
 import UnauthorizedError from '../errors/UnauthorizedError';
 import { BASE_URL } from './constants';
 
+//  const BASE_URL = `http://localhost:5000/`;
+
 export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
+  // export const register = (email, password, name) => fetch(`http://localhost:5000/signup`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Credentials': true,
   },
-  body: JSON.stringify({ email, password, name }),
+  body: JSON.stringify({ name, email, password }),
 })
+
   .then((res) => {
     if (!res.ok) {
       return res.json()
@@ -55,6 +59,7 @@ export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
   },
+  credentials: 'include',
 })
   .then((res) => {
     if (!res.ok) {
@@ -66,6 +71,26 @@ export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
     return res.json()
   })
   .then((data) => data);
+
+
+ export const updateUserInfo = (email, name) => {fetch(`${BASE_URL}/users/me`, {   
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': true,
+      },
+      credentials: 'include',
+      // body: JSON.stringify({ email, name }),
+      body: JSON.stringify({
+        name: escape(name),
+        email: escape(email),
+      }),
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => data);
+  };
 
 export const getSavedMovies = () => {
   return fetch(`${BASE_URL}/movies`, {
@@ -80,8 +105,7 @@ export const getSavedMovies = () => {
     });
 }
 
-export const saveMovies = (movie) => {
-  const { keyword, title, description, publishedAt, source, url, urlToImage } = movie;
+export const saveMovie = (movie) => {
   return fetch(`${BASE_URL}/movies`, {
     method: 'POST',
     headers: {
@@ -90,22 +114,30 @@ export const saveMovies = (movie) => {
     },
     credentials: 'include',
     body: JSON.stringify({
-      keyword,
-      title,
-      description,
-      publishedAt,
-      source: source.name,
-      url,
-      urlToImage,
-    }),
+      country: movie.country ? movie.country : 'unknown',
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      image: movie.image ?
+        `https://api.nomoreparties.co${movie.image.url}` :
+        'https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg',
+      thumbnail: movie.image ?
+        `https://api.nomoreparties.co${movie.image.url}` :
+        'https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg',
+      trailer: movie.trailerLink ? movie.trailerLink : 'https://youtube.com',
+      movieId: movie.id,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN ? movie.nameEN : 'noname'
+    })
   })
     .then((res) => {
       return res.json();
     });
 }
 
-export const deleteMovie = (id) => {
-  return fetch(`${BASE_URL}/movies/${id}`, {
+export const deleteMovie = (movieId) => {
+  return fetch(`${BASE_URL}/movies/${movieId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

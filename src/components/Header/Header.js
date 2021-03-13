@@ -3,7 +3,7 @@ import './Header.css';
 import Logo from '../Logo/Logo';
 import Menu from '../Menu/Menu';
 
-export default function Header({isProfileOpen, isMobileMenuOpened, onHamburgerClick , onProfileOpen, onSelectLogin, onSelectRegister }) {
+export default function Header({isLoggedIn, isProfileOpen, isMobileMenuOpened, onHamburgerClick , onProfileOpen, onSelectLogin, onSelectRegister }) {
   const { pathname } = useLocation();
 
   if(pathname === "/"){
@@ -30,6 +30,7 @@ export default function Header({isProfileOpen, isMobileMenuOpened, onHamburgerCl
         <div className="header__content"> 
          <Logo />     
          < Menu 
+            isLoggedIn={isLoggedIn}
             isMobileMenuOpened={isMobileMenuOpened}
             onHamburgerClick={onHamburgerClick}
             onProfileOpen={onProfileOpen}

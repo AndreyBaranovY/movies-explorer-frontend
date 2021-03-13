@@ -7,7 +7,7 @@ function Hamburger({ isMobileMenuOpened, onHamburgerClick }) {
     ${isMobileMenuOpened
       ? 'hamburger_opened'
       : 'hamburger_closed'}`;
-   console.log(isMobileMenuOpened);
+
   return (
     <button
       className={hamburgerClassName}
