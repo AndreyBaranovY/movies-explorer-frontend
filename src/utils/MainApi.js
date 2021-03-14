@@ -5,7 +5,6 @@ import { BASE_URL } from './constants';
 //  const BASE_URL = `http://localhost:5000/`;
 
 export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
-  // export const register = (email, password, name) => fetch(`http://localhost:5000/signup`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -98,7 +97,8 @@ export const getSavedMovies = () => {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-    }
+    },
+    credentials: 'include',
   })
     .then((res) => {
       return res.json();
@@ -121,10 +121,10 @@ export const saveMovie = (movie) => {
       description: movie.description,
       image: movie.image ?
         `https://api.nomoreparties.co${movie.image.url}` :
-        'https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg',
+        '',
       thumbnail: movie.image ?
         `https://api.nomoreparties.co${movie.image.url}` :
-        'https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg',
+        '',
       trailer: movie.trailerLink ? movie.trailerLink : 'https://youtube.com',
       movieId: movie.id,
       nameRU: movie.nameRU,
@@ -143,5 +143,6 @@ export const deleteMovie = (movieId) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     },
+    credentials: 'include',
   });
 };

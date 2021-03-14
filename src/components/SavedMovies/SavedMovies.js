@@ -1,22 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
- import { MoviesContext } from '../../contexts/MoviesContext';
-
+import { MoviesContext } from '../../contexts/MoviesContext';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import './SavedMovies.css';
 import { searchFilter } from '../../utils/searchFilter';
 import { durationFilter } from '../../utils/durationFilter';
 
-
-
-
 export default function SavedMovies(props) {
-  const {  selectedMovies, onBookmarkClick } = props;
+  const { onBookmarkClick } = props;
   
+  const  {savedMovies } = useContext(MoviesContext);
   const [searchValue, setSearchValue] = useState('');
   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
   const [movies, setMovies] = useState([]);
-                    //  const  {savedMovies } = useContext(MoviesContext);
+                   
   function handleSearchSubmit(value) {
     setSearchValue(value);
   }
@@ -26,10 +23,11 @@ export default function SavedMovies(props) {
   }
   
   useEffect(() => {
-    const moviesFound = searchFilter(selectedMovies, searchValue);
+    const moviesFound = searchFilter(savedMovies, searchValue);
     const moviesFiltered = durationFilter(moviesFound, isCheckboxChecked);
     setMovies(moviesFiltered);
-  }, [selectedMovies, searchValue, isCheckboxChecked]);
+    
+  }, [savedMovies, searchValue, isCheckboxChecked]);
   
   return (
     <section >
@@ -45,7 +43,7 @@ export default function SavedMovies(props) {
          isVisiblePreloader={false}
          isVisibleButtonMore={false}
          onBookmarkClick ={onBookmarkClick }
-         isSavedPage={true}      
+         isSavedMoviesPage={true}      
       />      
     </section >
   )

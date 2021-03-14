@@ -59,9 +59,8 @@
 //     )
 //   }
 
-
-
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { MoviesContext } from '../../contexts/MoviesContext';
 import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -74,25 +73,25 @@ import getAddMoviesCount from '../../utils/getAddMoviesCount';
 
 export default function Movies(props) {
   const {
-    allMovies,
     onMoviesSearchSubmit,
     isDisabledSearch,
     isVisiblePreloader,
     messageNoMovies,
     onBookmarkClick,
    } = props;
-    
-   const [searchValue, setSearchValue] = React.useState('');
-   const [isCheckboxChecked, setCheckboxChecked] = React.useState(false);
-   const [moviesCount, setMoviesCount] = React.useState(getMoviesCount());
-   const [currentMovies, setCurrentMovies] = React.useState([]);
-   const [filteredMovies, setFilteredMovies] = React.useState([]);
+
+   const  { movies } = useContext(MoviesContext); 
+   const [searchValue, setSearchValue] = useState('');
+   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
+   const [moviesCount, setMoviesCount] = useState(getMoviesCount());
+   const [currentMovies, setCurrentMovies] = useState([]);
+   const [filteredMovies, setFilteredMovies] = useState([]);
 
    const isVisibleButtonMore= filteredMovies.length > currentMovies.length;
 
    function handleSearchSubmit(value) {
     setSearchValue(value);
-    if(!allMovies.length) {
+    if(!movies.length) {
       onMoviesSearchSubmit();
     }
   }
@@ -104,14 +103,14 @@ export default function Movies(props) {
     setMoviesCount(moviesCount + getAddMoviesCount());
   }
 
-  React.useEffect(() => {
-    const moviesFound = searchFilter(allMovies, searchValue);
+  useEffect(() => {
+    const moviesFound = searchFilter(movies, searchValue);
     const moviesFiltered = durationFilter(moviesFound, isCheckboxChecked);
     setFilteredMovies(moviesFiltered);
     setCurrentMovies(moviesFiltered.slice(0, moviesCount));
-  }, [allMovies, isCheckboxChecked, searchValue, moviesCount]);
+  }, [movies, isCheckboxChecked, searchValue, moviesCount]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     function updateCardsList() {
       setTimeout(() => {
         setMoviesCount(getMoviesCount());
@@ -129,8 +128,7 @@ export default function Movies(props) {
         isDisabledSearch={isDisabledSearch}
         isCheckboxChecked={isCheckboxChecked}
         onCheckboxChange={handleCheckboxChange}
-        />
-        
+        />  
          <MoviesCardList
          movies={currentMovies}
          messageNoMovies={messageNoMovies}

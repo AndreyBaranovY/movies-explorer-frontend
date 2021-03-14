@@ -9,7 +9,7 @@ export default function MoviesCardList(props) {
   messageNoMovies,
   isVisiblePreloader,
   onBookmarkClick,
-  isSavedPage
+  isSavedMoviesPage
   } = props;
   
 
@@ -21,7 +21,7 @@ export default function MoviesCardList(props) {
             movie={movie}  
             key={index}
             onBookmarkClick={onBookmarkClick}
-            isSavedPage={isSavedPage}
+            isSavedMoviesPage={isSavedMoviesPage}
              />
         ))}
       <Preloader isVisiblePreloader={isVisiblePreloader} /> 

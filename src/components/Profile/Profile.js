@@ -34,10 +34,6 @@ import './Profile.css';
         history.push('/');
       }
 
-
-
-
-
       // function handleUpdateProfile(evt) {
       //   evt.preventDefault();
       //   onSubmit(emailField.value, nameField.value);

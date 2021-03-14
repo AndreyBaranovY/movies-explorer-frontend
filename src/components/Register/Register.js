@@ -2,50 +2,18 @@ import React from 'react';
 import Input from '../ui/Input/Input';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import { useValidation } from '../../utils/validation';
-import { PATH_ROUTES } from '../../utils/pathRouts';
-import * as mainApi from '../../utils/MainApi';
-import { useHistory } from 'react-router-dom';
-
-
-
 
 export default function Register(props) {
-  const { isOpen, onClose, onChangeForm, onRegisterSubmit, authError, disabled  } = props;
+  const { isOpen, onClose, onChangeForm, onRegister, authError, disabled } = props;
 
   const emailField = useValidation();
   const nameField = useValidation();
   const passwordField = useValidation();
-  const history = useHistory();
-
-  // function handleRegister(evt) {
-  //   evt.preventDefault();
-  //   onRegister(emailField.value, passwordField.value, nameField.value);
-  // };
-
+  
   function handleRegister(evt) {
     evt.preventDefault();
-   
-    mainApi.register(nameField, emailField, passwordField)
-      .then(() => {
-        mainApi.authorize(emailField, passwordField)
-          .then((user) => {
-            onRegisterSubmit(user);
-            history.push(PATH_ROUTES.MOVIES);
-          })
-      })
-      .catch((err) => {
-        
-      })
-      .finally(() => {
-       
-      });
-  }
-
-
-
-
-
-
+    onRegister(emailField.value, passwordField.value, nameField.value);
+  };
 
   function handleClose() {
     emailField.setErrorMessage('');
