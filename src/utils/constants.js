@@ -5,5 +5,5 @@ export const MOVIES_API_OPTIONS = {
   },
 };
 
-// export const BASE_URL = 'https://api.movie-finder.students.nomoredomains.rocks';
- export const BASE_URL = 'http://localhost:5000'
+export const BASE_URL = 'https://api.movie-finder.students.nomoredomains.rocks';
+//  export const BASE_URL = 'http://localhost:5000'
