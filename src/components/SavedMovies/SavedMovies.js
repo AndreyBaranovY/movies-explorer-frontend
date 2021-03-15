@@ -8,8 +8,7 @@ import { durationFilter } from '../../utils/durationFilter';
 
 export default function SavedMovies(props) {
   const { onBookmarkClick } = props;
-  
-  const  {savedMovies } = useContext(MoviesContext);
+  const {savedMovies } = useContext(MoviesContext);
   const [searchValue, setSearchValue] = useState('');
   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -26,7 +25,6 @@ export default function SavedMovies(props) {
     const moviesFound = searchFilter(savedMovies, searchValue);
     const moviesFiltered = durationFilter(moviesFound, isCheckboxChecked);
     setMovies(moviesFiltered);
-    
   }, [savedMovies, searchValue, isCheckboxChecked]);
   
   return (
@@ -35,16 +33,14 @@ export default function SavedMovies(props) {
          onSearch={handleSearchSubmit}
          isDisabledSearch={false}
          isCheckboxChecked={isCheckboxChecked}
-         onCheckboxChange={handleCheckboxChange}
-      />
+         onCheckboxChange={handleCheckboxChange}/>
       <MoviesCardList
          movies={movies}
          messageNoMovies='Пока сюда ничего не добавлено'
          isVisiblePreloader={false}
          isVisibleButtonMore={false}
          onBookmarkClick ={onBookmarkClick }
-         isSavedMoviesPage={true}      
-      />      
+         isSavedMoviesPage={true}/>      
     </section >
   )
 }

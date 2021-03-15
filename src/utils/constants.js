@@ -1,5 +1,3 @@
-export const CARDS_PER_ROW = 3;
-
 export const MOVIES_API_OPTIONS = {
   baseUrl: 'https://api.nomoreparties.co/beatfilm-movies/',
   headers: {

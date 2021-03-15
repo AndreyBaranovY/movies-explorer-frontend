@@ -2,8 +2,6 @@ import BadRequestError from '../errors/BadRequestError';
 import UnauthorizedError from '../errors/UnauthorizedError';
 import { BASE_URL } from './constants';
 
-//  const BASE_URL = `http://localhost:5000/`;
-
 export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
   method: 'POST',
   headers: {
@@ -11,6 +9,7 @@ export const register = (email, password, name) => fetch(`${BASE_URL}/signup`, {
     'Access-Control-Allow-Credentials': true,
   },
   body: JSON.stringify({ name, email, password }),
+  credentials: 'include',
 })
 
   .then((res) => {
@@ -79,7 +78,6 @@ export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
         'Access-Control-Allow-Credentials': true,
       },
       credentials: 'include',
-      // body: JSON.stringify({ email, name }),
       body: JSON.stringify({
         name: escape(name),
         email: escape(email),
