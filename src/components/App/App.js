@@ -251,12 +251,13 @@ function handleUpdateUser(user) {
 }
 
 const CurrentUserData = JSON.stringify(currentUser, null, 4);
-// const savedMoviesData = JSON.stringify(savedMovies, null, 4);
+const savedMoviesData = JSON.stringify(savedMovies, null, 4);
 // const moviesData = JSON.stringify(movies, null, 4);
+
 console.log(`Залогинен: ${isLoggedIn}`); 
 console.log(`CurrentUser: ${CurrentUserData}`); 
-// console.log(`savedMoviesData: ${savedMoviesData}`); 
-// console.log(`moviesData: ${movies}`); 
+console.log(`savedMoviesData: ${savedMoviesData}`); 
+// console.log(`moviesData: ${moviesData}`); 
 
 
   return (
@@ -304,6 +305,7 @@ console.log(`CurrentUser: ${CurrentUserData}`);
 
         <ProtectedRoute  path='/movies' isLoggedIn={isLoggedIn}>
              <Movies
+               movies={movies}
                onMoviesSearchSubmit={handleMoviesSearch}
                isDisabledSearch={isDisabledSearch}
                isVisiblePreloader={isVisiblePreloader}
@@ -313,7 +315,6 @@ console.log(`CurrentUser: ${CurrentUserData}`);
 
         <ProtectedRoute exact path='/saved-movies' isLoggedIn={isLoggedIn}>
             <SavedMovies 
-            SavedMovies={savedMovies}
             onBookmarkClick={onBookmarkClick} />  
         </ProtectedRoute>
 

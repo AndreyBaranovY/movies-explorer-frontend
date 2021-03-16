@@ -12,13 +12,14 @@ import getAddMoviesCount from '../../utils/getAddMoviesCount';
 
 export default function Movies(props) {
   const {
+    movies,
     onMoviesSearchSubmit,
     isDisabledSearch,
     isVisiblePreloader,
     messageNoMovies,
     onBookmarkClick,
   } = props;
-  const  { movies } = useContext(MoviesContext); 
+  // const  { movies } = useContext(MoviesContext); 
   const [searchValue, setSearchValue] = useState('');
   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
   const [moviesCount, setMoviesCount] = useState(getMoviesCount());
