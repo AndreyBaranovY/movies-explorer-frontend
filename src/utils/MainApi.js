@@ -71,11 +71,11 @@ export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
   .then((data) => data);
 
 
- export const updateUserInfo = (email, name) => {fetch(`${BASE_URL}/users/me`, {   
+ export const updateUserInfo = (name, email ) => {fetch(`${BASE_URL}/users/me`, {   
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Credentials': true,
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
       },
       credentials: 'include',
       body: JSON.stringify({

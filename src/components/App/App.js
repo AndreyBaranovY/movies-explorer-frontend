@@ -17,7 +17,6 @@ import * as moviesApi from '../../utils/MoviesApi';
 import * as mainApi from '../../utils/MainApi';
 import ProtectedRoute from '../ProtectedRout';
 
-
 function App() {
   const escape = require('escape-html');
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -34,7 +33,6 @@ function App() {
   const [messageNoMovies, setMessageNoMovies] = useState('');
   const [isDisabledSearch, setDisabledSearch] = useState(false);
   const [disabled, setDisabled] = useState(false);
- 
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -110,8 +108,6 @@ useEffect(() => {
 
 // сохранение - удаление фильма
 function onBookmarkClick(movie) {
-  console.log(`Хозяин фильма: ${!movie.owner}`); 
-  console.log(`Фильм isSaved?: ${!movie.isSaved}`); 
   if(!movie.isSaved && !movie.owner) {
     mainApi.saveMovie(movie)
       .then((savedMovie) => {
@@ -244,19 +240,18 @@ function handleUpdateUser(user) {
     setCurrentUser({})
     setProfileOpen(false);
   } else {
-    setCurrentUser(user);
+    setCurrentUser(user.data);
     setProfileOpen(false);
     setTooltipOpen(true);
   }
 }
 
-const CurrentUserData = JSON.stringify(currentUser, null, 4);
-const savedMoviesData = JSON.stringify(savedMovies, null, 4);
+// const CurrentUserData = JSON.stringify(currentUser, null, 4);
+// const savedMoviesData = JSON.stringify(savedMovies, null, 4);
 // const moviesData = JSON.stringify(movies, null, 4);
-
-console.log(`Залогинен: ${isLoggedIn}`); 
-console.log(`CurrentUser: ${CurrentUserData}`); 
-console.log(`savedMoviesData: ${savedMoviesData}`); 
+// console.log(`Залогинен: ${isLoggedIn}`); 
+// console.log(`CurrentUser: ${CurrentUserData}`); 
+// console.log(`savedMoviesData: ${savedMovies}`); 
 // console.log(`moviesData: ${moviesData}`); 
 
 
@@ -315,6 +310,7 @@ console.log(`savedMoviesData: ${savedMoviesData}`);
 
         <ProtectedRoute exact path='/saved-movies' isLoggedIn={isLoggedIn}>
             <SavedMovies 
+            savedMovies={savedMovies}
             onBookmarkClick={onBookmarkClick} />  
         </ProtectedRoute>
 

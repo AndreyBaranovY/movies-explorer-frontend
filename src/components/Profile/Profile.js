@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import * as mainApi from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useHistory } from 'react-router-dom';
@@ -13,19 +13,21 @@ export default function Profile(props) {
   const history = useHistory();
   const emailField = useValidation();
   const nameField = useValidation();
+  const [infoMessage, setInfoMessage] = useState('');
 
   function handleUpdateProfile(evt) {
     evt.preventDefault();
     mainApi.updateUserInfo(nameField.value, emailField.value)
       .then((user) => {
         onUpdateUser(user);
+        setInfoMessage('Данные профиля успешно обновлены!');
       })
       .catch((err) => (err.message))
       .finally();  
   };
 
   function handleSignOut (evt) {
-   evt.preventDefault();
+    evt.preventDefault();
     onUpdateUser({});
     localStorage.removeItem('jwt');
     history.push('/');
@@ -75,10 +77,11 @@ return (
          maxLength='30'
          type='email'
          autoComplete='email'
-         {...emailField}
+        {...emailField}
          inputLabelClassName='profile__label_no-border'
          inputFieldClassName='profile__input'
-         placeholder= {user.email} />
+         placeholder= {user.email} 
+         />
     </PopupWithForm>
   </div>
      )

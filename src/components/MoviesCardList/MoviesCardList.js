@@ -16,10 +16,10 @@ export default function MoviesCardList(props) {
   return (
     <section className='cards-section'>
       { !movies.length && <p className="movies__not-found">{messageNoMovies}</p> }
-        {!!movies.length &&  movies.map((movie,index) => (
+        {!!movies.length &&  movies.map((movie) => (
           <MoviesCard
+            key={movie._id}
             movie={movie}  
-            key={index}
             onBookmarkClick={onBookmarkClick}
             isSavedMoviesPage={isSavedMoviesPage}
              />

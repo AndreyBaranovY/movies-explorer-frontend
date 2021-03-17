@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useState} from 'react';
 import './MoviesCard.css';
+
 
 export default function MoviesCard(props) {
   const { movie, isSavedMoviesPage, onBookmarkClick } = props;
   const { duration, trailerLink, nameRU } = movie;
   const hours = Math.floor(duration/60);
   const minutes = duration - Math.floor(hours * 60);
+
+  
 
   function imageHelper(movie) {
    if (movie.image && movie.image.url) return `https://api.nomoreparties.co${movie.image.url}`;
@@ -26,7 +29,7 @@ export default function MoviesCard(props) {
            <button className="card__button_delete" type="button"     
              onClick={handleBookmarkClick}/>
        ) : (
-           <button className={movie.isSaved ? "card__button_saved" : "card__button"}  type="button"  
+           <button className={movie.isSaved? "card__button_saved" : "card__button"}  type="button"  
              onClick={handleBookmarkClick}/>
        )}   
      </div>

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { MoviesContext } from '../../contexts/MoviesContext';
+import React, { useEffect, useState } from 'react';
 import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
@@ -19,7 +18,6 @@ export default function Movies(props) {
     messageNoMovies,
     onBookmarkClick,
   } = props;
-  // const  { movies } = useContext(MoviesContext); 
   const [searchValue, setSearchValue] = useState('');
   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
   const [moviesCount, setMoviesCount] = useState(getMoviesCount());
@@ -59,7 +57,7 @@ export default function Movies(props) {
     window.addEventListener('resize', updateCardsList);
     return () => window.removeEventListener('resize', updateCardsList);
   }, [filteredMovies]);
-
+       
   return (
     <div >      
       <SearchForm

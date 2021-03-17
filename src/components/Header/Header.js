@@ -6,7 +6,7 @@ import Menu from '../Menu/Menu';
 export default function Header({isLoggedIn, isProfileOpen, isMobileMenuOpened, onHamburgerClick , onProfileOpen, onSelectLogin, onSelectRegister }) {
   const { pathname } = useLocation();
 
-  if(pathname === "/"){
+  if(pathname === "/" && !isLoggedIn){
     return (
       <header className='hero'>
          <div className="hero__content">
