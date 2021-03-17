@@ -13,6 +13,7 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "deploy": "npm run build && scp -r ./build/* andrey@84.252.131.225:/home/andrey/movie-finder",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

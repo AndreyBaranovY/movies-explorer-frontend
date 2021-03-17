@@ -4,7 +4,7 @@ import './Navigation.css';
 
 
 
-function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen, navigationClassName, savedMovies }){
+function Menu({ isLoggedIn, isMobileMenuOpened, onHamburgerClick, onProfileOpen, navigationClassName, savedMovies }){
        
   const onClicks = (e) => { 
     if (isMobileMenuOpened) 
@@ -49,14 +49,14 @@ function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen, navigationC
             Сохранённые фильмы
           </NavLink>
           </div>
-
+         { isLoggedIn &&
         <NavLink
             to="/profile"
             className="navigation__profile"  
             onClick={onClicksProfile}
             >
           </NavLink>
-         
+          }
           </div>
       </div>
     )

@@ -1,16 +1,15 @@
 import React from 'react';
 import Input from '../ui/Input/Input';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
-
 import { useValidation } from '../../utils/validation';
 
 export default function Register(props) {
-  const { isOpen, onClose, onChangeForm, onRegister, authError, disabled  } = props;
+  const { isOpen, onClose, onChangeForm, onRegister, authError, disabled } = props;
 
   const emailField = useValidation();
   const nameField = useValidation();
   const passwordField = useValidation();
-
+  
   function handleRegister(evt) {
     evt.preventDefault();
     onRegister(emailField.value, passwordField.value, nameField.value);
@@ -81,7 +80,6 @@ export default function Register(props) {
         inputLabelClassName='popup__input-label'
         inputFieldClassName='popup__input'
         placeholder='Введите пароль' />
-   
     </PopupWithForm>
   )
 }

@@ -1,29 +1,30 @@
 import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import Preloader from '../Preloader/Preloader';
 import './MoviesCardList.css';
-// import moviesToRender from '../../data/movies/movies';
 
 export default function MoviesCardList(props) {
   const {
-    isLoggedIn,
-    onCardClick,
-    moviesToRender,
-    savedMovies,
-    onCardSave,
-    onCardDelete,
+  movies,
+  messageNoMovies,
+  isVisiblePreloader,
+  onBookmarkClick,
+  isSavedMoviesPage
   } = props;
+  
 
   return (
     <section className='cards-section'>
-        {moviesToRender.map((movie) => (
+      { !movies.length && <p className="movies__not-found">{messageNoMovies}</p> }
+        {!!movies.length &&  movies.map((movie) => (
           <MoviesCard
-            movie={movie}  
             key={movie._id}
-            onCardClick={onCardClick}
-            onCardSave={onCardSave}
-            onCardDelete={onCardDelete}
+            movie={movie}  
+            onBookmarkClick={onBookmarkClick}
+            isSavedMoviesPage={isSavedMoviesPage}
              />
         ))}
+      <Preloader isVisiblePreloader={isVisiblePreloader} /> 
     </section>
   )
 }

@@ -141,7 +141,20 @@
     opacity: 0;
     transition: all .4s ease;
   }
-
+  
+  .search__error-container {
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search__error-text {
+    color: #ff4062;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+    text-align: center;
+  }
 
   @-webkit-keyframes transparency{
     from{

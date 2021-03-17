@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Navigation';
 
 import './Menu.css';
 
-function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen}){
+function Menu({ isLoggedIn, isMobileMenuOpened, onHamburgerClick, onProfileOpen}){
 
   const navigationClassName = `${isMobileMenuOpened ? 'navigation_mobile' : 'navigation'}`;
  
@@ -19,8 +19,9 @@ function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen}){
           
         />  
        <Navigation 
+          isLoggedIn={isLoggedIn}
           navigationClassName={navigationClassName} 
-                        onHamburgerClick={onHamburgerClick}  
+          onHamburgerClick={onHamburgerClick}  
           onProfileOpen={onProfileOpen}   
          
         />   
@@ -32,6 +33,7 @@ function Menu({ isMobileMenuOpened, onHamburgerClick, onProfileOpen}){
       <div className="menu_mobile">
           <div className="menu__container">
             <Navigation 
+              isLoggedIn={isLoggedIn}
               navigationClassName={navigationClassName}  
               onHamburgerClick={onHamburgerClick}   
               onProfileOpen={onProfileOpen}   
